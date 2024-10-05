@@ -99,6 +99,8 @@ For servers with a 2TB+ HDD and UEFI
 /tmp/qemu-system-x86_64 -bios /tmp/uefi.bin -net nic -net user,hostfwd=tcp::3389-:3389 -m 2048M -localtime -enable-kvm -cpu host,+nx -M pc -smp 2 -vga std -usbdevice tablet -k en-us -cdrom /tmp/SW_DVD9_Win_Server_STD_CORE_2022_2108.15_64Bit_English_DC_STD_MLF_X23-31801.ISO -hda /dev/sda -boot once=d -vnc :1
 ```
 
+IMPORTANT NOTE: if your dedicated server has NVME drive its name could deviate from `/dev/sda`, to find out exactly run `lsblk` on rescue system via SSH, that will display the list of your hard drive names. Change the command prompt `-hda /dev/sda` flag accordingly (follow the format `-hda /dev/YOUR_DRIVE_NAME`)
+
 ## This is the VNC section
 Once that is ready and before you hit enter on that ssh command lets open VNC viewer on your computer so we can connect to this RDP session that we just made 
 Put the IP of the server in the connection field like this
